@@ -6,7 +6,7 @@ var Seller = require('./app/models/seller');
 var Inventory = require('./app/models/inventory')
 
 //configure app for bodyParser 
-// it lets us grab data fromt eh body of POST request
+// it lets us grab data from the body of POST request
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
