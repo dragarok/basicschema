@@ -10,26 +10,27 @@ var InventorySchema = new Schema({
     quantity: String,
     specs: {
         desc : String,
-        price: String,
+        price: Double,
         gender: String,
-        colors: [],
-        sizes: []
+        colors: [String],
+        sizes: [String]
     },
-    tags: [],
-    addedDate: {type: Date, default: Date.now()},
-    parent: Boolean,
+    tags: [String],
+    rating:[{
+      user_id:Object ID,
+      value:Integer
+    }],
+    review:[
+      {
+        user_id:Object ID,
+        comment:String,
+        likes:Integer
+  }]
+  //  parent: Boolean,
     categories: [{type: String, set:toLower}]
 });
 
 InventorySchema.index({categories:1});
 // Getter
-InventorySchema.path('specs.price').get(function(num) {
-    return (num / 100).toFixed(2);
-  });
-
-  // Setter
-InventorySchema.path('specs.price').set(function(num) {
-    return num * 100;
-  });
 
 module.exports = mongoose.model('Inventory', InventorySchema);

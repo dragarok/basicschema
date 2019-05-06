@@ -14,12 +14,11 @@ var SellerSchema = new Schema({
     },
     location: {
         type: { type: String, default: 'Point' },
-        coordinates: [Number]
+        coordinates: [Double]
     },
-    items: []
+    items: [Object Id]
 });
 
 SellerSchema.index({ "location.coordinates": "2dsphere" });
 
 module.exports = mongoose.model('Seller', SellerSchema);
-
