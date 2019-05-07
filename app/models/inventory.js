@@ -7,7 +7,7 @@ function toLower(v) {
 
 var InventorySchema = new Schema({
     name: String,
-    quantity: String,
+    quantity: Number,
     specs: {
         desc : String,
         price: Double,
@@ -32,5 +32,4 @@ var InventorySchema = new Schema({
 
 InventorySchema.index({categories:1});
 // Getter
-
 module.exports = mongoose.model('Inventory', InventorySchema);
